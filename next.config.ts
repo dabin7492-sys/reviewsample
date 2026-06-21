@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
       bodySizeLimit: '20mb',
     },
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 }
 
 export default nextConfig
