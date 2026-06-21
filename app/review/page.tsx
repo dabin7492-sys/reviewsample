@@ -266,7 +266,7 @@ export default function ReviewPage() {
 
         {/* 헤더 */}
         <div style={{ background: 'linear-gradient(135deg, #5b9bd5, #7ab3e0, #a8cef0)', padding: '22px 24px', textAlign: 'center' }}>
-          <div style={{ color: 'white', fontSize: 22, fontWeight: 'bold', letterSpacing: 1, textShadow: '0 1px 3px rgba(0,0,0,0.15)' }}>✿ 모집 제출 사이트 샘플</div>
+          <div style={{ color: 'white', fontSize: 22, fontWeight: 'bold', letterSpacing: 1, textShadow: '0 1px 3px rgba(0,0,0,0.15)' }}>모집 제출 사이트 샘플</div>
           <div style={{ color: 'rgba(255,255,255,0.9)', fontSize: 12, marginTop: 4 }}>리뷰 모집 플랫폼</div>
         </div>
 
