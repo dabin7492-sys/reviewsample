@@ -96,7 +96,7 @@ export default function AdminPage() {
   }
 
   const deleteStore = async (id: string, name: string) => {
-    if (!confirm(`"${name}" 스토어를 삭제하시겠습니까?`)) return
+    if (!confirm(`"${name}" 제품을 삭제하시겠습니까?`)) return
     await fetch('/api/stores', { method: 'DELETE', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id }) })
     await loadStores()
   }
@@ -267,7 +267,7 @@ export default function AdminPage() {
                 background: tab === t ? '#3498db' : 'rgba(255,255,255,0.12)',
                 color: 'white',
               }}>
-                {t === 'applications' ? '📝 신청 내역' : '🏪 스토어 관리'}
+                {t === 'applications' ? '📝 신청 내역' : '📦 제품 관리'}
               </button>
             ))}
           </div>
@@ -299,7 +299,7 @@ export default function AdminPage() {
 
             {/* 필터 */}
             <div style={{ background: 'white', borderRadius: 10, padding: '14px 18px', marginBottom: 12, boxShadow: '0 2px 8px rgba(0,0,0,0.06)', display: 'flex', flexWrap: 'wrap', gap: 10, alignItems: 'flex-end' }}>
-              <div><div style={flStyle}>스토어</div>
+              <div><div style={flStyle}>제품</div>
                 <select value={afStore} onChange={e => setAfStore(e.target.value)} style={fis}>
                   <option value="">전체</option>{stores.map(s => <option key={s.id} value={s.name}>{s.name}</option>)}
                 </select>
@@ -644,15 +644,15 @@ export default function AdminPage() {
           </div>
         )}
 
-        {/* ══ 스토어 관리 ══ */}
+        {/* ══ 제품 관리 ══ */}
         {tab === 'stores' && (
           <div style={{ maxWidth: 480 }}>
             <div style={{ background: 'white', borderRadius: 10, padding: '24px', boxShadow: '0 2px 8px rgba(0,0,0,0.06)', marginBottom: 16 }}>
-              <h3 style={{ margin: '0 0 16px', color: '#2c3e50', fontSize: 16 }}>🏪 스토어 추가</h3>
+              <h3 style={{ margin: '0 0 16px', color: '#2c3e50', fontSize: 16 }}>📦 제품 추가</h3>
               <div style={{ display: 'flex', gap: 8 }}>
                 <input type="text" value={newStore} onChange={e => setNewStore(e.target.value)}
                   onKeyDown={e => e.key === 'Enter' && addStore()}
-                  placeholder="스토어명 입력"
+                  placeholder="제품명 입력"
                   style={{ flex: 1, padding: '10px 12px', border: '1px solid #ddd', borderRadius: 8, fontSize: 14 }} />
                 <button onClick={addStore} disabled={storeLoading || !newStore.trim()}
                   style={{ padding: '10px 20px', background: '#2c3e50', color: 'white', border: 'none', borderRadius: 8, fontWeight: 'bold', cursor: 'pointer' }}>
@@ -661,9 +661,9 @@ export default function AdminPage() {
               </div>
             </div>
             <div style={{ background: 'white', borderRadius: 10, padding: '24px', boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-              <h3 style={{ margin: '0 0 16px', color: '#2c3e50', fontSize: 16 }}>등록된 스토어 ({stores.length}개)</h3>
+              <h3 style={{ margin: '0 0 16px', color: '#2c3e50', fontSize: 16 }}>등록된 제품 ({stores.length}개)</h3>
               {stores.length === 0 ? (
-                <div style={{ textAlign: 'center', color: '#bbb', padding: '20px 0' }}>등록된 스토어가 없습니다.</div>
+                <div style={{ textAlign: 'center', color: '#bbb', padding: '20px 0' }}>등록된 제품이 없습니다.</div>
               ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                   {stores.map(s => (
