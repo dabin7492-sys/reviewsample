@@ -1,12 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { supabaseAdmin } from '@/lib/supabase'
 
-// Vercel 요청 크기 제한 해제 (기본 4.5MB → 무제한)
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-}
+// Vercel 요청 크기 제한 해제
+export const maxDuration = 60
 
 // POST: 이미지 업로드 (순차 처리로 안정성 향상)
 export async function POST(req: NextRequest) {
